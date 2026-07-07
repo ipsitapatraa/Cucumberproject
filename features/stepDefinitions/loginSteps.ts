@@ -1,30 +1,29 @@
 import {Given,When,Then} from '@cucumber/cucumber';
-//import {RegisterPage} from '../../pages/RegisterPage'
 import {CustomWorld} from '../../support/world'
 import { LoginPage } from '../../pages/LoginPage';
 import {test, expect } from '@playwright/test';
 
  
  
-let login : LoginPage;
+let lp : LoginPage;
 
-Given('User opens the login application', async function (this:CustomWorld) {
+Given('User launches the login page', async function (this:CustomWorld) {
 
-    login = new LoginPage(this.page);
-     await login.Launchapp();  
-     await login.understandandcontinue();   
+    lp = new LoginPage(this.page);
+     await lp.Launchapp();  
+     await lp.popup();   
 });
       
-When('User enters valid login credentials', async function (this:CustomWorld){
+When('User enters login details', async function (this:CustomWorld){
 
-    console.log("entereed credentails")
+    console.log("user entered valid credentails")
 
-     await login.login();
+     await lp.login();
 });
        
-Then('User should be logged in successfully ',async function (this:CustomWorld) {
+Then('User should login successfully',async function (this:CustomWorld) {
   
-    console.log("Login successfully")     
+    console.log("user logged in successfully")     
 });
 
 

@@ -1,17 +1,17 @@
 import { Page,expect,Locator } from '@playwright/test';
 
-export class InvoicePage {
+export class SummaryPage {
 
 constructor(
 private page: Page
 ) {}
 
-async oninvoicepage()
+async onsummarypage()
 {
-    await expect(this.page).toHaveURL('invoice/flights/');
+    await expect(this.page).toHaveURL('/flights/');
 }
 
-async validatebookingsuccess()
+async bookingvalidation()
 {
   
   await expect(this.page.getByText("Your flight booking has been confirmed.")).toBeVisible();

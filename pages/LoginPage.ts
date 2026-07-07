@@ -17,7 +17,7 @@ async Launchapp()
 
 }
 
-async understandandcontinue()
+async popup()
 {
     await this.page.getByText('I Understand & Continue', { exact: true }).click();
     await this.page.waitForTimeout(2000);

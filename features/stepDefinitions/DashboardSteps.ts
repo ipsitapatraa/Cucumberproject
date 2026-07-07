@@ -1,71 +1,68 @@
 import {Given,When,Then} from '@cucumber/cucumber';
-//import {RegisterPage} from '../../pages/RegisterPage'
-import {CustomWorld} from '../../support/world'
-
-import {test, expect } from '@playwright/test';
+import {CustomWorld} from '../../support/world';
 import { DashboardPage } from '../../pages/DashboardPage';
 import { LoginPage } from '../../pages/LoginPage';
      
-let dash : DashboardPage;
+let dp : DashboardPage;
 
 
 Given('User is on dashboard page', async function (this:CustomWorld) {
 
-dash = new DashboardPage(this.page);
+dp = new DashboardPage(this.page);
     
-     await dash.verifyDashboardPage();
-     await dash.clickserviceslink();
+     await dp.verifyDashboard();
+     await dp.onclickservices();
     
 });
-When('User enters departure city and arrival city', async function (this:CustomWorld){
+When('User enters oneway trip details', async function (this:CustomWorld){
 
-     await dash.clickDepartureFlightBooking();
-     await dash.clickArrivalFlightBooking();
+     await dp.onclickDeparture();
+     await dp.onclickArrival();
 });
        
 
        
-Then('User should be able to select the locations from the dropdown',async function (this:CustomWorld) {
+Then('User should successfully select the locations',async function (this:CustomWorld) {
   
-    console.log("Locations selected successfully")  
+    console.log("Locations displayed"); 
   
 });   
 
 
-When('User selects the departure date', async function (this:CustomWorld){
+When('User selects the passenger number', async function (this:CustomWorld){
     
 
-     await dash.clickDeparturedateFlightBooking();
+     await dp.onclickDeparturedate();
    
 });
        
-Then('selected date should be dispalyed',async function (this:CustomWorld) {
+Then('Passenger count is updated successfully',async function (this:CustomWorld) {
   
-    console.log("selected date displayed successfully")  
+    console.log("user should see selected date")  
 });
 
 When('User selects the number of passengers', async function (this:CustomWorld){
     
 
-     await dash.clickPassengersFlightBooking();
+     await dp.onclickPassengers();
    
 });
        
 Then('Passenger count should be updated successfully',async function (this:CustomWorld) {
   
-    console.log("Passenger count updated successfully") 
+    console.log("Passenger count updated");
 });
     
-When('User clicks on the search button', async function (this:CustomWorld){
+When('User clicks the search button in dashboard page', async function (this:CustomWorld){
     
 
-     await dash.clickSearchButton();
+     await dp.onclickSearch();
    
 });
        
-Then('User should be able to see the search results',async function (this:CustomWorld) {
+Then('User should see the search results',async function (this:CustomWorld) {
   
-    console.log("User should be able to see the search results") ;    
+    console.log("User should see the search result") ;    
 });
 
 

@@ -1,30 +1,30 @@
-Feature: Dashboard 
+Feature: Dashboard functionallity
 
 
 
-Scenario: verify departure and arrival feilds in dashboard page
+Scenario: Verify oneway trip in dashboard page
 
 Given User is on dashboard page
-When User enters departure city and arrival city
-Then User should be able to select the locations from the dropdown 
+When User enters oneway trip details
+Then User should successfully select the locations 
 
 
 
-Scenario: verify departure date selection in dashboard page
+Scenario: Verify departure date selection
 
 Given User is on dashboard page
 When User selects the departure date
-Then selected date should be dispalyed
+Then selected date should be display successfully
 
-Scenario: verify passenger selection in dashboard page
-
-Given User is on dashboard page
-When User selects the number of passengers
-Then Passenger count should be updated successfully
-
-Scenario: verify search button functionality in dashboard page
+Scenario: Verify passenger count selection
 
 Given User is on dashboard page
-When User clicks on the search button
-Then User should be able to see the search results
+When User selects the passenger number
+Then Passenger count is updated successfully
+
+Scenario: Verify search functionality
+
+Given User is on dashboard page
+When User clicks the search button in dashboard page
+Then User should see the search results
 

@@ -2,7 +2,7 @@ import { Page } from '@playwright/test';
 
 
 
-export class RegisterPage {
+export class RegistrationPage {
 
 constructor(
 private page: Page
@@ -21,7 +21,7 @@ private confirmpassword= "#confirm_password";
 private captcha="//input[@id='captcha_answer']";
 private checkbox='span.material-symbols-outlined.text-white.text-xs.checkbox-icon';
 private createaccount= "//button[@type='submit']"
-async openApp() {
+async launchApp() {
 
 await this.page.goto(
 
@@ -30,7 +30,7 @@ await this.page.goto(
 
 }
 
-async clickSignup() {
+async customersignup() {
     
     await this.page.getByText('I Understand & Continue', { exact: true }).click();
     await this.page.waitForTimeout(5000);
@@ -40,16 +40,16 @@ async clickSignup() {
 }
 
 
-async Register()
+async doRegister()
 {
 
 console.log(
-'Entering registeration credentials');
+'Enter the registration details');
     await this.page.click(this.signupbutton);
     await this.page.click(this.customersignupbutton);
     await this.page.fill(this.firstname, 'firstname');
     await this.page.fill(this.lastname, 'lastname');
-    await this.page.fill(this.email, 'sample@ymail.com');
+    await this.page.fill(this.email, 'sample2@ymail.com');
     await this.page.fill(this.password,"Sample@1234");
     await this.page.fill(this.confirmpassword,"Sample@1234");
     await this.page.fill(this.captcha, '1234');

@@ -8,34 +8,24 @@ constructor(
 private page: Page
 ) {}
 
-serviceslink = "//span[@class='font-medium'][normalize-space()='Services']";
-Flightbookingmenu=("//span[normalize-space()='Flights Booking']");
-//Departurecity="('div').filter({ hasText: 'Departure City or Airport' }).first()";
-//Arrivalcity="('div').filter({ hasText: 'Arrival City or Airport' }).first()";
-//Departuredate=("div[class='field-box-segment']");
-//Passengers= ("//div[normalize-space()='1 Passenger']");
+servicemenu = "//span[@class='font-medium'][normalize-space()='Services']";
+Flightsubmenu=("//span[normalize-space()='Flights Booking']");
 
 
-async verifyDashboardPage() {
-
-     
+async verifyDashboard() {     
     
     await this.page.goto('https://phptravels.net/flights');
     await this.page.getByText('I Understand & Continue', { exact: true }).click();
     await expect(this.page).toHaveURL('https://phptravels.net/flights');
-   
-
     
 }
 
-async  clickserviceslink() {
-    await this.page.hover(this.serviceslink);
-    //await this. page.locator(this.Flightbookingmenu).waitFor({state:"visible"});
-    //await this.page.waitForTimeout(50000);
-    await this.page.click(this.Flightbookingmenu);
+async  onclickservices() {
+    await this.page.hover(this.servicemenu);    
+    await this.page.click(this.Flightsubmenu);
 }
 
-async clickDepartureFlightBooking()
+async onclickDeparture()
 
 {
     await this.page.locator("#fl_from_trigger").click(); 
@@ -43,14 +33,14 @@ async clickDepartureFlightBooking()
     await this.page.locator('div').filter({ hasText: 'Bengaluru, Karnataka, India' }).first().click();
 }
 
-async clickArrivalFlightBooking()
+async onclickArrival()
 {
     await this.page.locator("#fl_to_trigger").click();
     await this.page.fill("#fl_to_q","Delhi");
    await this.page.locator(':text-is("New Delhi, National Capital Territory of India, India")').click();
 }
 
-async clickDeparturedateFlightBooking()
+async onclickDeparturedate()
 {
 
     await this.page.locator(" div[class='field-box-segment']").click();
@@ -58,22 +48,19 @@ async clickDeparturedateFlightBooking()
 
   }
 
-async clickPassengersFlightBooking()
+async onclickPassengers()
 {
     await this.page.locator("//div[normalize-space()='Passengers']").click();
-    let addbutton= await this.page.locator('span').filter({ hasText: 'add' }).first();
-    await addbutton.click();
-    await addbutton.click();
-    //await this.page.locator('span').filter({ hasText: 'add' }).first().click();
-    //await this.page.locator('span').filter({ hasText: 'add' }).first().click();
+    let button= await this.page.locator('span').filter({ hasText: 'add' }).first();
+    await button.click();
+    await button.click();
     
 }
 
-async clickSearchButton()
+async onclickSearch()
 {
    await this. page.getByRole('button', { name: 'Search Flights' }).click();
-
-   await this.page.waitForLoadState("networkidle");
+   //await this.page.waitForLoadState("networkidle");
 }
 
 

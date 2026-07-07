@@ -1,10 +1,10 @@
-Feature: Login
+Feature: Login functionality
 
-   Login functinality validation
+   Login feature validation
 
 
-Scenario: Verify login with valid credentials
+Scenario: Verify login functionality valid credentials
 
-Given User opens the login application
-When User enters valid login credentials
-Then User should be logged in successfully 
+Given User launches the login page
+When User enters login details
+Then User should login successfully 
